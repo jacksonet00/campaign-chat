@@ -2,40 +2,110 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "../data/store";
 import styles from "../styles/Home.module.css";
+import { v4 as uuidv4 } from "uuid";
+import { addChat, clearHistory } from "../data/chatSlice";
 
-type Chat = {
+export type Chat = {
   message: string;
   sender: boolean;
   id: string;
 };
 
 const Home: NextPage = () => {
-  const [chatHistory, setChatHistory] = useState<Chat[]>([]);
+  const { chats } = useAppSelector((state) => state.chatHistory);
   const [loading, setLoading] = useState(true);
   const [input, setInput] = useState("");
+  const [buffer, setBuffer] = useState("");
+  const dispatch = useAppDispatch();
 
-  function addChat(chat: Chat) {
+  function _getChatBuffer(message: string) {
+    let bufferString = buffer + "\n";
+    chats.forEach((chat) => {
+      bufferString += chat.message + "\n";
+    });
+    bufferString += message;
+    return bufferString;
+  }
+
+  async function _handleSendChat(message: string) {
     setLoading(true);
-    setChatHistory([chat, ...chatHistory]);
+    dispatch(
+      addChat({
+        message,
+        sender: true,
+        id: uuidv4(),
+      })
+    );
+    const myBody = {
+      chat: _getChatBuffer(message),
+    };
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      body: JSON.stringify(myBody), // string or object
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const myJson: string = await response.json();
+    dispatch(
+      addChat({
+        message: myJson,
+        id: uuidv4(),
+        sender: false,
+      })
+    );
     setLoading(false);
   }
 
-  function initializeGame() {
-    setLoading(true);
-    addChat({
-      message: "welcome to your campaign",
-      sender: false,
-      id: "1",
+  async function initializeGame() {
+    const seedMessage =
+      "You are a medeival man taking me on a series of quests, in a kingdom based chat role playing game";
+    let myBody = {
+      chat: seedMessage,
+    };
+    let response = await fetch("/api/chat", {
+      method: "POST",
+      body: JSON.stringify(myBody), // string or object
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
+    const responseJson = await response.json();
+    const newMessage = "Where am I? What do I see in the kingdom?";
+    const newBody = { chat: `${seedMessage}\n${responseJson}\n${newMessage}` };
+    response = await fetch("/api/chat", {
+      method: "POST",
+      body: JSON.stringify(newBody), // string or object
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const myJson: string = await response.json();
+    dispatch(
+      addChat({
+        message: myJson,
+        id: uuidv4(),
+        sender: false,
+      })
+    );
+    setBuffer(newMessage);
     setLoading(false);
   }
 
   function resetGame() {
     setLoading(true);
-    localStorage.removeItem("campaignChatHistory");
-    setChatHistory([]);
+    dispatch(clearHistory());
     setLoading(false);
+  }
+
+  function _handleEndGame() {
+    dispatch(clearHistory);
+  }
+
+  function _handleStartGame() {
+    initializeGame();
   }
 
   useEffect(() => {
@@ -59,12 +129,12 @@ const Home: NextPage = () => {
             <p>loading...</p>
           ) : (
             <>
-              {chatHistory.map((chat) => (
+              {chats.map((chat: Chat, i) => (
                 <article
                   className={
                     chat.sender ? styles.chatMessageTo : styles.chatMessageFrom
                   }
-                  key={chat.id}
+                  key={i}
                 >
                   <p>{chat.message}</p>
                 </article>
@@ -77,11 +147,7 @@ const Home: NextPage = () => {
           className={styles.inputContainer}
           onSubmit={(e) => {
             e.preventDefault();
-            addChat({
-              message: input,
-              sender: true,
-              id: "2",
-            });
+            _handleSendChat(input);
             setInput("");
           }}
         >
@@ -95,10 +161,10 @@ const Home: NextPage = () => {
             <input type="submit" />
           </form>
           <button
-            className={chatHistory.length > 0 ? styles.end : styles.start}
-            onClick={chatHistory.length > 0 ? resetGame : initializeGame}
+            className={chats.length > 0 ? styles.end : styles.start}
+            onClick={chats.length > 0 ? _handleEndGame : _handleStartGame}
           >
-            {chatHistory.length > 0 ? "End Game" : "Start Game"}
+            {chats.length > 0 ? "End Game" : "Start Game"}
           </button>
         </section>
       </main>

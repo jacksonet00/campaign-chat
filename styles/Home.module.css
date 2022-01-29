@@ -43,10 +43,9 @@
 }
 
 .title {
-  margin-top: -10rem;
   line-height: 1.15;
   font-size: 4rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
   font-family: "MedievalSharp", cursive;
   background-image: url("https://i.ibb.co/x7nXVfH/Group-1-4.png");
   background-size: 100% 100%;
@@ -70,7 +69,7 @@
   display: flex;
   flex-direction: column-reverse;
   width: var(--chat-box-width);
-  height: 36rem;
+  min-height: 36rem;
   background-color: var(--chat-container-color);
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
@@ -129,7 +128,7 @@
 
 .chatBox article {
   width: 80%;
-  height: 4rem;
+  min-height: 4rem;
   border-radius: 0.5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
