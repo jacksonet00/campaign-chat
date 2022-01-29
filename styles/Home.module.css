@@ -1,7 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Merriweather&display=swap');
 
 .container {
   margin: 0;
+  color: #0070f3
 }
 
 .main {
@@ -58,6 +59,7 @@
   align-items: center;
   justify-content: center;
   max-width: 40rem;
+  text-shadow: 1px 2px 8px #5c391b;
 }
 
 .title,
@@ -71,8 +73,8 @@
   width: var(--chat-box-width);
   min-height: 36rem;
   background-color: var(--chat-container-color);
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
   max-width: 40rem;
   overflow: scroll;
 }
@@ -93,10 +95,12 @@
   bottom: 0;
   width: 100%;
   background-color: var(--input-container-color);
-  border-color: var(--input-container-border-color);
+  border:none;
+  /* border-color: var(--input-container-border-color); */
+  font-family: var(--chat-box-font);
   font-size: larger;
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
   height: 4rem;
   padding-left: 3rem;
   padding-right: 3rem;
@@ -107,8 +111,11 @@
 }
 
 .inputContainer button {
-  margin-top: 2em;
+  font-family: "MedievalSharp", cursive;
+  font-size: 19px;
+  margin-top: 10em;
   margin-left: auto;
+  margin: auto;
   height: 3rem;
   border: none;
   border-radius: 0.5rem;
@@ -123,7 +130,7 @@
 }
 
 .end {
-  background-color: red;
+  background-color: rgb(189, 32, 32);
 }
 
 .chatBox article {
@@ -141,16 +148,31 @@
 .chatMessageTo {
   background-color: var(--chat-box-color-sender);
   margin-left: auto;
-  margin-right: 2rem;
+  margin-right: 5rem;
+}
+
+.profileTo {
+  background-image: url("https://i.ibb.co/4TdRT0V/To-pfp.png");
+  background-repeat: no-repeat; 
+  margin-left: 25rem;
 }
 
 .chatMessageFrom {
   background-color: var(--chat-box-color);
-  margin-left: 2rem;
+  margin-left: 5rem;
+}
+
+.profileFrom {
+  background-image: url("https://i.ibb.co/GxcZfys/from.png");
+  background-repeat: no-repeat; 
+  background-size: 25px;
+  margin-left: -4rem;
+
 }
 
 .chatBox p {
   color: var(--chat-color);
+  font-family: var(--chat-box-font);
 }
 
 .description {

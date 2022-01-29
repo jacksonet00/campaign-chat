@@ -118,7 +118,7 @@ const Home: NextPage = () => {
         <title>Campaign Chat</title>
         <meta
           name="description"
-          content="A chat based medieval roleplaying game."
+          content="A chat-based medieval roleplaying game."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -126,7 +126,7 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>Campaign Chat</h1>
         <section className={styles.chatBox}>
           {loading ? (
-            <p>loading...</p>
+            <p>Loading...</p>
           ) : (
             <>
               {chats.map((chat: Chat, i) => (
@@ -137,6 +137,8 @@ const Home: NextPage = () => {
                   key={i}
                 >
                   <p>{chat.message}</p>
+                  <article className= {chat.sender ? styles.profileTo: styles.profileFrom}> 
+                  </article>
                 </article>
               ))}
             </>
