@@ -135,9 +135,9 @@
 }
 
 .chatBox article {
-  width: 60%;
-  height: 4rem;
-  border-radius: 0.6rem;
+  width: 80%;
+  min-height: 4rem;
+  border-radius: 0.5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   padding-left: 1rem;
