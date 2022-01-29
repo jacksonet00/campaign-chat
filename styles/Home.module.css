@@ -1,10 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap");
+
 .container {
-  padding: 0 2rem;
+  margin: 0;
 }
 
 .main {
-  min-height: 100vh;
-  padding: 4rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -15,9 +15,13 @@
 .footer {
   display: flex;
   flex: 1;
-  padding: 2rem 0;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .footer a {
@@ -39,9 +43,22 @@
 }
 
 .title {
-  margin: 0;
+  margin-top: -10rem;
   line-height: 1.15;
   font-size: 4rem;
+  margin-top: 4rem;
+  font-family: "MedievalSharp", cursive;
+  background-image: url("https://i.ibb.co/x7nXVfH/Group-1-4.png");
+  background-size: 100% 100%;
+  width: 80%;
+  height: 15rem;
+  color: black;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 40rem;
 }
 
 .title,
@@ -50,18 +67,91 @@
 }
 
 .chatBox {
+  display: flex;
+  flex-direction: column-reverse;
+  width: var(--chat-box-width);
+  height: 36rem;
+  background-color: var(--chat-container-color);
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  max-width: 40rem;
+  overflow: scroll;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: var(--chat-box-width);
+  max-width: 40rem;
+}
+.inputContainer form {
+  width: 100%;
+}
+
+.inputContainer input {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--input-container-color);
+  border-color: var(--input-container-border-color);
+  font-size: larger;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  height: 4rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.inputContainer input[type="submit"] {
+  display: none;
+}
+
+.inputContainer button {
+  margin-top: 2em;
+  margin-left: auto;
+  height: 3rem;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+
+  color: white;
+  width: 8rem;
+}
+
+.start {
+  background-color: var(--button-color);
+}
+
+.end {
   background-color: red;
-  width: 60%;
+}
+
+.chatBox article {
+  width: 80%;
   height: 4rem;
   border-radius: 0.5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.chatMessageTo {
+  background-color: var(--chat-box-color-sender);
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+.chatMessageFrom {
+  background-color: var(--chat-box-color);
+  margin-left: 2rem;
 }
 
 .chatBox p {
-  color: white;
+  color: var(--chat-color);
 }
 
 .description {
@@ -123,9 +213,14 @@
   margin-left: 0.5rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+  .title {
+    font-size: 2rem;
+    margin-top: 1rem;
+    height: 8rem;
   }
 }
