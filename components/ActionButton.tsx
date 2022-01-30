@@ -4,9 +4,10 @@ const ActionButton: NextPage<{
   title: string;
   onClick: () => void;
   className: string;
-}> = ({ title, onClick, className }) => {
+  disabled: boolean;
+}> = ({ title, onClick, className, disabled }) => {
   return (
-    <button className={className} onClick={onClick}>
+    <button className={className} onClick={onClick} disabled={disabled}>
       {title}
     </button>
   );
