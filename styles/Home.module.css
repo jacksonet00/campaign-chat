@@ -134,8 +134,7 @@
 }
 
 .chatBox article {
-  min-height: 4rem;
-  border-radius: 3.5rem;
+  border-radius: 0.5rem;
   padding-top: 0.1rem;
   padding-bottom: 0.1rem;
   padding-left: 1rem;
@@ -206,7 +205,7 @@
 .chatMessageFrom {
   width: 70%;
   background-color: var(--chat-box-color);
-  text-align: center;
+  text-align: left;
   margin-left: 3rem;
 }
 
