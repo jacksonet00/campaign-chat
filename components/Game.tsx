@@ -46,6 +46,7 @@ const Game: NextPage = () => {
   }
 
   async function _initializeGame() {
+    setLoading(true);
     await _handleSendChat({
       message: SEED_MESSAGE,
       id: uuidv4(),
@@ -56,7 +57,10 @@ const Game: NextPage = () => {
         message: _getBufferString(FOLLOW_UP_MESSAGE),
         id: uuidv4(),
         sender: true,
-      }).then(() => setInProgress(true));
+      }).then(() => {
+        setInProgress(true);
+        setLoading(false);
+      });
     }, 3000);
   }
 
