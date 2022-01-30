@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Chat } from "../pages";
+import { Chat } from "../types/Chat";
 
 export interface ChatHistoryState {
   chats: Chat[];
