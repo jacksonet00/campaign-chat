@@ -71,7 +71,7 @@
   display: flex;
   flex-direction: column-reverse;
   width: var(--chat-box-width);
-  height: 36rem;
+  height: 30rem;
   background-color: var(--chat-container-color);
   border-top-left-radius: 2rem;
   border-top-right-radius: 2rem;
@@ -171,7 +171,7 @@
 }
 
 .buttonContainer button {
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   margin-left: auto;
   color: white;
   width: 8rem;
@@ -290,5 +290,23 @@
     font-size: 2rem;
     margin-top: 1rem;
     height: 8rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .title {
+    font-size: large;
+  }
+}
+
+@media (max-width: 275px) {
+  .title {
+    font-size: large;
+  }
+}
+
+@media (max-width: 200px) {
+  .title {
+    font-size: small;
   }
 }
