@@ -14,7 +14,7 @@ const Root: NextPage = () => {
     if (persistedApiKey) {
       dispatch(set(persistedApiKey));
     }
-  }, []);
+  }, [dispatch]);
 
   if (!apiKey) {
     return <APIKeyPicker />;

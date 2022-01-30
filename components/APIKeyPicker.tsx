@@ -10,7 +10,11 @@ const APIKeyPicker: NextPage = () => {
   return (
     <div className={styles.picker}>
       <h1>Play Campaign Chat</h1>
-      <a href="https://beta.openai.com/account/api-keys" target="_blank">
+      <a
+        href="https://beta.openai.com/account/api-keys"
+        target="_blank"
+        rel="noreferrer"
+      >
         1. Navigate to OpenAI
       </a>
       <p>2. Login, click profile {">"} API Keys, and copy your API key.</p>
