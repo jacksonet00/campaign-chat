@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import chatReducer from "./chatSlice";
+import apiKeyReducer from "./apiKeySlice";
 
 export const store = configureStore({
   reducer: {
     chatHistory: chatReducer,
+    apiKey: apiKeyReducer,
   },
 });
 
