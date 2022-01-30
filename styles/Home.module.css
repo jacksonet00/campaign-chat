@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Merriweather&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=MedievalSharp&family=Merriweather&display=swap");
 
 .container {
   margin: 0;
-  color: #0070f3
+  color: #0070f3;
 }
 
 .main {
@@ -96,7 +96,7 @@
   bottom: 0;
   width: 100%;
   background-color: var(--input-container-color);
-  border:none;
+  border: none;
   /* border-color: var(--input-container-border-color); */
   font-family: var(--chat-box-font);
   font-size: larger;
@@ -114,7 +114,7 @@
 .inputContainer button {
   font-family: "MedievalSharp", cursive;
   font-size: 25px;
-  text-shadow:2px 2px 5px#7e5028;
+  text-shadow: 2px 2px 5px#7e5028;
   height: 10rem;
   width: 12rem;
   margin-left: 32%;
@@ -122,12 +122,13 @@
 }
 
 .start {
-  background: url(https://i.ibb.co/8jKMyGh/endgame-1-1.png) no-repeat; 
+  background: url(https://i.ibb.co/8jKMyGh/endgame-1-1.png) no-repeat;
   background-size: 100%;
-  background-position: 25% 50%;}
+  background-position: 25% 50%;
+}
 
 .end {
-  background: url(https://i.ibb.co/p2QXZYH/endgame-1.png) no-repeat; 
+  background: url(https://i.ibb.co/p2QXZYH/endgame-1.png) no-repeat;
   background-size: 100%;
   background-position: 25% 50%;
 }
@@ -170,6 +171,10 @@
   height: 3rem;
 }
 
+.buttonContainer button:disabled {
+  display: none;
+}
+
 .picker a {
   text-decoration: underline;
   color: blue;
@@ -185,9 +190,9 @@
 
 .profileTo {
   background-image: url("https://i.ibb.co/4TdRT0V/To-pfp.png");
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   background-size: 50px;
-  background-position: 100% 50% ;
+  background-position: 100% 50%;
   flex: 33.33%;
 }
 
@@ -200,7 +205,7 @@
 
 .profileFrom {
   background-image: url("https://i.ibb.co/GxcZfys/from.png");
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   background-size: 50px;
   background-position: 0% 50%;
 }
