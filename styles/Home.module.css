@@ -76,6 +76,7 @@
   border-top-left-radius: 2rem;
   border-top-right-radius: 2rem;
   max-width: 40rem;
+  box-shadow: 1px 2px 8px #5c391b;
   overflow: scroll;
 }
 
@@ -112,33 +113,30 @@
 
 .inputContainer button {
   font-family: "MedievalSharp", cursive;
-  font-size: 19px;
-  margin-top: 10em;
-  margin-left: auto;
-  margin: auto;
-  height: 3rem;
+  font-size: 25px;
+  text-shadow:2px 2px 5px#7e5028;
+  height: 10rem;
+  width: 12rem;
+  margin-left: 32%;
   border: none;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-
-  color: white;
-  width: 8rem;
 }
 
 .start {
-  background-color: var(--button-color);
-}
+  background: url(https://i.ibb.co/8jKMyGh/endgame-1-1.png) no-repeat; 
+  background-size: 100%;
+  background-position: 25% 50%;}
 
 .end {
-  background-color: rgb(189, 32, 32);
+  background: url(https://i.ibb.co/p2QXZYH/endgame-1.png) no-repeat; 
+  background-size: 100%;
+  background-position: 25% 50%;
 }
 
 .chatBox article {
-  width: 80%;
   min-height: 4rem;
-  border-radius: 0.5rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  border-radius: 3.5rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
   padding-left: 1rem;
   padding-right: 1rem;
   margin-bottom: 1rem;
@@ -146,28 +144,33 @@
 }
 
 .chatMessageTo {
+  width: auto;
   background-color: var(--chat-box-color-sender);
+  text-align: right;
   margin-left: auto;
-  margin-right: 5rem;
+  margin-right: 3rem;
 }
 
 .profileTo {
   background-image: url("https://i.ibb.co/4TdRT0V/To-pfp.png");
   background-repeat: no-repeat; 
-  margin-left: 25rem;
+  background-size: 50px;
+  background-position: 100% 50% ;
+  flex: 33.33%;
 }
 
 .chatMessageFrom {
+  width: 70%;
   background-color: var(--chat-box-color);
-  margin-left: 5rem;
+  text-align: center;
+  margin-left: 3rem;
 }
 
 .profileFrom {
   background-image: url("https://i.ibb.co/GxcZfys/from.png");
   background-repeat: no-repeat; 
-  background-size: 25px;
-  margin-left: -4rem;
-
+  background-size: 50px;
+  background-position: 0% 50%;
 }
 
 .chatBox p {

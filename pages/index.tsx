@@ -131,14 +131,10 @@ const Home: NextPage = () => {
             <>
               {chats.map((chat: Chat, i) => (
                 <article
-                  className={
-                    chat.sender ? styles.chatMessageTo : styles.chatMessageFrom
-                  }
+                  className={`${chat.sender ? styles.chatMessageTo : styles.chatMessageFrom}`}
                   key={i}
                 >
                   <p>{chat.message}</p>
-                  <article className= {chat.sender ? styles.profileTo: styles.profileFrom}> 
-                  </article>
                 </article>
               ))}
             </>
@@ -161,13 +157,13 @@ const Home: NextPage = () => {
               onChange={(e) => setInput(e.target.value)}
             />
             <input type="submit" />
-          </form>
-          <button
+            <button
             className={chats.length > 0 ? styles.end : styles.start}
             onClick={chats.length > 0 ? _handleEndGame : _handleStartGame}
           >
             {chats.length > 0 ? "End Game" : "Start Game"}
           </button>
+          </form>
         </section>
       </main>
       {/* <footer className={styles.footer}>

@@ -19,12 +19,12 @@ a {
 :root {
   --bg-color: white;
   --chat-color: white;
-  --chat-box-color: #2a2b35;
+  --chat-box-color: #202532;
   --chat-container-color: #f8f0de;
   --input-container-border-color: black;
   --input-container-color: white;
   --chat-box-width: 90%;
-  --chat-box-color-sender: rgb(117, 173, 192);
+  --chat-box-color-sender: #fab857;
   --chat-box-font: 'Merriweather', serif;
   --button-color: rgb(58, 129, 243);
 }
