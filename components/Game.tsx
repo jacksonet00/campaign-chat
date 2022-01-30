@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import { Head } from "next/document";
 import { useState } from "react";
 import { clearHistory, addChat } from "../data/chatSlice";
 import { useAppSelector, useAppDispatch } from "../data/store";

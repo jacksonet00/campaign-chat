@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import { Head } from "next/document";
 import { useState } from "react";
 import { set } from "../data/apiKeySlice";
 import { useAppDispatch } from "../data/store";

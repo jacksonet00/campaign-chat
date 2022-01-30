@@ -6,10 +6,7 @@ export type Data = {
   error: { message: string } | null;
 };
 
-export default async function (
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
+async function chat(req: NextApiRequest, res: NextApiResponse<Data>) {
   const resOjbect: Data = { data: null, error: null };
   res.setHeader("Content-Type", "application/json");
   res.setHeader("Cache-Control", "max-age=180000");
@@ -48,3 +45,5 @@ export default async function (
     res.end(JSON.stringify(resOjbect));
   }
 }
+
+export default chat;
